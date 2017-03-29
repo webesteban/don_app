@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<!-- Example Block -->
+<div class="block">
+  <!-- Example Title -->
+  <div class="block-title">
+    <h2>Listado de Noticias</h2>
+    <%= link_to "Crear nueva Noticia", new_article_path, :class => "btn btn-success btn-xs" %>
+  </div>
+  <!-- END Example Title -->
+
+  <table class="table data-table" style="background: #fff">
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+      <tr>
+          <td><%= link_to article.title, article_path(article) %><%=  %></td>         
+        
+        <td><%= article.date %></td>
+        
+      </tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>
+
+<p id="notice"><%= notice %></p>
+
