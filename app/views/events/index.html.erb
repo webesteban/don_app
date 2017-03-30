@@ -1,0 +1,37 @@
+<p id="event"><%= notice %></p>
+
+<!-- Example Block -->
+<div class="block">
+  <!-- Example Title -->
+  <div class="block-title">
+    <h2>Listado de Eventos</h2>
+    <%= link_to "Crear nuevo Eventos", new_event_path, :class => "btn btn-success btn-xs" %>
+  </div>
+  <!-- END Example Title -->
+
+  <table class="table data-table" style="background: #fff">
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Inicia</th>
+        <th>Termina</th>
+        <th>Lugar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+      <tr>
+          <td><%= link_to event.name, article_path(event) %><%=  %></td>         
+        
+        <td><%= event.start_time %></td>
+        <td><%= event.end_time %></td>
+        <td><%= event.address %></td>
+        <td><%= link_to 'Detalle', event, :class => "btn btn-success btn-xs" %></td>
+        <td><%= link_to 'Editar', edit_event_path(event), :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Eliminar', event, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+      </tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   resources :articles
   root :to => 'home#index', :as => 'dashboard'
 
