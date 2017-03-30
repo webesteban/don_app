@@ -1,0 +1,68 @@
+<script type="text/javascript">
+  $(function () {
+        $('.fecha').datetimepicker({
+          format: 'YYYY-MM-DD'
+        });        
+
+    });
+</script>
+
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-2"> </div>
+        <div class="col-md-8"> 
+                <div class="form-group">
+                    <%= f.label :name %><br>
+                    <%= f.text_field :name, :class => "form-control", :required => true %>
+                </div>
+        </div>
+    </div>
+
+
+  <div class="row">
+    <div class="col-md-2"> </div>
+        <div class="col-md-8"> 
+                <div class="form-group">
+                    <%= f.label :start_time %><br>
+                    <%= f.text_field :start_time, :class => "form-control fecha", :required => true %>
+                </div>
+        </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"> </div>
+        <div class="col-md-8"> 
+                <div class="form-group">
+                    <%= f.label :end_time %><br>
+                    <%= f.text_field :end_time, :class => "form-control fecha", :required => true %>
+                </div>
+        </div>        
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"> </div>
+        <div class="col-md-8"> 
+                <div class="form-group">
+                    <%= f.label :address %><br>
+                    <%= f.text_field :address, :class => "form-control", :required => true %>
+                </div>
+        </div>
+  </div>
+  <div class="actions pull-right">
+    <%= f.submit "Guardar Evento", :class => "btn btn-primary" %>
+    <%= link_to "Regresar", 'javascript:void(0)', :onclick => 'goBack();', :class => "btn btn-warning" %>
+  </div>
+  <div class="clear" style="clear: both;"></div>
+<% end %>
