@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   namespace :api, :defaults => {:format => :json} do
 
         # Event
-        get 'allevents' => 'events#all'  
+        get 'events/allevents' => 'events#all'  
 
         #News
-        get 'allnews' => 'news#all'    
+        get 'news/allnews' => 'news#all'    
     end
 end
