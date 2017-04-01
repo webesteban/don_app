@@ -15,7 +15,7 @@ class API::EventsController < API::APIController
                 end_time: event.end_time
             })
         end
-        response = {:success => true, :data => {:events => json_events}}
+        response = {:events => json_events}
         status = 200
 
         render :json => response, :status => status

@@ -11,7 +11,7 @@ class API::NewsController < API::APIController
                 content: article.content
             })
         end
-        response = {:success => true, :data => {:news => json_articles}}
+        response = {:news => json_articles}
         status = 200
 
         render :json => response, :status => status
