@@ -1,19 +1,29 @@
 <p id="notice"><%= notice %></p>
+<div class="block">
+	<div class="block-title"><h2>Detalle de Noticia</h2></div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @article.date %>
-</p>
+	<div class="row">
+		<p>
+		  <strong>Fecha:</strong>
+		  <%= @article.date %>
+		</p>
+	</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+	<div class="row">
+		<p>
+		  <strong>Titulo:</strong>
+		  <%= @article.title %>
+		</p>
+	</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
+	<div class="row">
+		<p>
+		  <strong>Contenido:</strong>
+		  <%= @article.content %>
+		</p>
+	</div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+	<%= link_to 'Editar', edit_article_path(@article), :class => "btn btn-primary btn-sm" %> |
+	<%= link_to 'Regresar', articles_path, :class => "btn btn-primary btn-sm" %>
+
+</div>
