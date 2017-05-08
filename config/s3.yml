@@ -1,0 +1,21 @@
+test:
+  bucket: "don-app"
+  access_key_id: AKIAJXOZIOCJV3FJEVUA
+  secret_access_key: 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
+development:
+  bucket: "don-app"
+  access_key_id: AKIAJXOZIOCJV3FJEVUA
+  secret_access_key: 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
+dev:
+  bucket: "don-app"
+  access_key_id: AKIAJXOZIOCJV3FJEVUA
+  secret_access_key: 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
+stage:
+  bucket: "don-app"
+  access_key_id: AKIAJXOZIOCJV3FJEVUA
+  secret_access_key: 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
+production:
+  bucket: "don-app"
+  access_key_id: AKIAJXOZIOCJV3FJEVUA
+  secret_access_key: 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
+
