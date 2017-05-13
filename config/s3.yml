@@ -1,21 +1,21 @@
 test:
   bucket: "don-app"
-  access_key_id: AKIAJXOZIOCJV3FJEVUA
-  secret_access_key: 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
+  access_key_id: ENV['AWS_ACCESS-KEY']
+  secret_access_key: ENV['AWS_SECRET_KEY']
 development:
   bucket: "don-app"
-  access_key_id: AKIAJXOZIOCJV3FJEVUA
-  secret_access_key: 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
+  access_key_id: ENV['AWS_ACCESS-KEY']
+  secret_access_key: ENV['AWS_SECRET_KEY']
 dev:
   bucket: "don-app"
-  access_key_id: AKIAJXOZIOCJV3FJEVUA
-  secret_access_key: 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
+  access_key_id: ENV['AWS_ACCESS-KEY']
+  secret_access_key: ENV['AWS_SECRET_KEY']
 stage:
   bucket: "don-app"
-  access_key_id: AKIAJXOZIOCJV3FJEVUA
-  secret_access_key: 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
+  access_key_id: ENV['AWS_ACCESS-KEY']
+  secret_access_key: ENV['AWS_SECRET_KEY']
 production:
   bucket: "don-app"
-  access_key_id: AKIAJXOZIOCJV3FJEVUA
-  secret_access_key: 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
+  access_key_id: ENV['AWS_ACCESS-KEY']
+  secret_access_key: ENV['AWS_SECRET_KEY']
 

@@ -40,9 +40,15 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   #Paperclip + AWS
-        config.paperclip_defaults = {
-          :storage => :s3,
-          :s3_credentials => "#{Rails.root}/config/s3.yml",
-          :bucket => "don-app"
-       }
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV['AWS_BUCKET_NAME'],
+      access_key_id: ENV['AWS_ACCESS-KEY'],
+      secret_access_key: ENV['AWS_SECRET_KEY'],
+      s3_region: ENV['AWS_REGION'],
+    },
+    s3_host_name: "sa-east-1.amazonaws.com", # Added entry
+    s3_domain_url: ":s3_host_name" 
+  }
 end
