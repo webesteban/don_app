@@ -1,7 +1,6 @@
 class API::EventsController < API::APIController
 
 	def all
-
         events = Event.all        
         json_events = []
         events.each do |event|
@@ -21,4 +20,27 @@ class API::EventsController < API::APIController
         render :json => response, :status => status
     end
 
+    def self.event_notification(event_id)
+        fcm = FCM.new(ENV['FCM_API_KEY'])
+        devices = DeviceToken.all
+        unless devices.nil?
+            registration_ids = []
+            devices.each do |device|
+                registration_ids.push(device.token)
+            end
+            options = {}
+            options[:notification] = {} 
+            options[:notification][:title] = "Donación en Progreso" 
+            options[:notification][:body] = "Nueva Jornada de Donación"
+            options[:data] = {}
+            options[:data][:id] = event_id         
+            callback = fcm.send(registration_ids, options)              
+            response = {:success => true, :message => callback}
+            status = 200
+        else
+            response = {success: false, error: "No Devices Found"}
+            status = 404
+        end        
+        render :json => response, :status => status
+    end
 end

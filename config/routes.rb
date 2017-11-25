@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   namespace :api, :defaults => {:format => :json} do
 
         # Event
-        get 'events/allevents' => 'events#all'  
+        get 'events/allevents' => 'events#all'
+
+        #Device
+        post 'device' => 'device#get_devices'  
 
         #News
         get 'news/allnews' => 'news#all'    

@@ -28,6 +28,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        API::EventsController.event_notification(@event.id)
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
