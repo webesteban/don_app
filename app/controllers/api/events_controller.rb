@@ -20,6 +20,34 @@ class API::EventsController < API::APIController
         render :json => response, :status => status
     end
 
+    def event
+        if params[:id].nil?
+            response = {:success => false, :error => 'Missing params'}
+            status = 403
+        else
+            event = Event.find_by_id(params[:id])
+            if event.nil?
+                response = {success: false, error: "Event not Found"}
+                status = 404 
+            else
+                response = {
+                        success: true,
+                        data: {
+                            name: event.name,
+                            lat: event.lat,
+                            lon: event.lon,
+                            address: event.address,
+                            start_time: event.start_time.strftime("%m/%d/%Y %H:%M") ,
+                            id: event.id,
+                            end_time: event.end_time.strftime("%m/%d/%Y %H:%M")
+                            }
+                        }
+                status = 200
+            end
+        end
+        render :json => response, :status => status
+    end
+
     def self.event_notification(event_id)
         fcm = FCM.new(ENV['FCM_API_KEY'])
         devices = DeviceToken.all

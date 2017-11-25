@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
         # Event
         get 'events/allevents' => 'events#all'
+        get 'event/:id' => 'events#event'
 
         #Device
         post 'device' => 'device#get_devices'  
