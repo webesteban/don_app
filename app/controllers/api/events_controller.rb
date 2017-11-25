@@ -69,6 +69,5 @@ class API::EventsController < API::APIController
             response = {success: false, error: "No Devices Found"}
             status = 404
         end        
-        render :json => response, :status => status
     end
 end
